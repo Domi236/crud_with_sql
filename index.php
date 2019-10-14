@@ -38,8 +38,7 @@ if(isset($_GET['delete_id'])){
             <div class="row">
                 <!-- Sidebar menu -->
                 <?php require_once 'includes/sidebar.php'; ?>
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-                    <h1 style="margin-top: 10px">DataTable</h1>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 mt-4">
                     <?php
                       if(isset($_GET['updated'])){
                         echo '<div class="alert alert-info alert-dismissable fade show" role="alert">
@@ -71,13 +70,15 @@ if(isset($_GET['delete_id'])){
                         </div>';
                       }
                     ?>
+                    <h2 class="mt-4">Kontaktdaten</h2>
                       <div class="table-responsive">
                         <table class="table table-striped table-sm">
                             <thead>
                               <tr>
                                 <th>#</th>
-                                <th>Full Name</th>
-                                <th>Email</th>
+                                <th>Name</th>
+                                <th>E-Mail</th>
+                                <th>Telefon</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -101,6 +102,8 @@ if(isset($_GET['delete_id'])){
 
                                     <td><?php print($rowUser['email']); ?></td>
 
+                                    <td><?php print($rowUser['phone']); ?></td>
+
                                     <td>
                                       <a class="confirmation" href="index.php?delete_id=<?php print($rowUser['id']); ?>">
                                       <span data-feather="trash"></span>
@@ -114,6 +117,57 @@ if(isset($_GET['delete_id'])){
                         </table>
 
                       </div>
+
+                    <h2 class="mt-4">Zugangsdaten</h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-sm">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Typ</th>
+                                <th>Role</th>
+                                <th>User</th>
+                                <th>Password</th>
+                                <th>Url/Database</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <?php
+                            $query = "SELECT * FROM df_enviroment";
+                            $stmt = $objUser->runQuery($query);
+                            $stmt->execute();
+                            ?>
+                            <tbody>
+                            <?php if($stmt->rowCount() > 0){
+                                while($rowUser = $stmt->fetch(PDO::FETCH_ASSOC)){
+                                    ?>
+                                    <tr>
+                                        <td><?php print($rowUser['id']); ?></td>
+
+                                        <td><?php print($rowUser['typ']); ?></td>
+
+                                        <td><?php print($rowUser['role']); ?></td>
+
+                                        <td><?php print($rowUser['user']); ?></td>
+
+                                        <td><?php print($rowUser['password']); ?></td>
+
+                                        <td><?php print($rowUser['adress']); ?></td>
+
+                                        <td>
+                                            <a class="confirmation" href="index.php?delete_id=<?php print($rowUser['id']); ?>">
+                                                <span data-feather="trash"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+
+
+                                <?php } } ?>
+                            </tbody>
+                        </table>
+
+                    </div>
 
 
                 </main>

@@ -2,7 +2,7 @@
 
 require_once 'database.php';
 
-class User {
+class Enviroment {
     private $conn;
 
     // Constructor
@@ -20,12 +20,14 @@ class User {
     }
 
     // Insert
-    public function insert($name, $email, $phone){
+    public function insert($typ, $role, $user, $password, $adress){
       try{
-        $stmt = $this->conn->prepare("INSERT INTO df_users (name, email, phone) VALUES(:name, :email, :phone)");
-        $stmt->bindparam(":name", $name);
-        $stmt->bindparam(":email", $email);
-        $stmt->bindparam(":phone", $phone);
+        $stmt = $this->conn->prepare("INSERT INTO df_enviroment (typ, role, user, password, adress) VALUES(:typ, :role, :user, :password, :adress)");
+        $stmt->bindparam(":typ", $typ);
+        $stmt->bindparam(":role", $role);
+        $stmt->bindparam(":user", $user);
+        $stmt->bindparam(":password", $password);
+        $stmt->bindparam(":adress", $adress);
         $stmt->execute();
         return $stmt;
       }catch(PDOException $e){
@@ -35,12 +37,14 @@ class User {
 
 
     // Update
-    public function update($name, $email, $phone, $id){
+    public function update($typ, $role, $user, $password, $adress, $id){
         try{
-          $stmt = $this->conn->prepare("UPDATE df_users SET name = :name, email = :email, phone = :phone WHERE id = :id");
-          $stmt->bindparam(":name", $name);
-          $stmt->bindparam(":email", $email);
-          $stmt->bindparam(":phone", $phone);
+          $stmt = $this->conn->prepare("UPDATE df_enviroment SET typ = :typ, role = :role, user = :user, password = :password, adress = :adress WHERE id = :id");
+            $stmt->bindparam(":typ", $typ);
+            $stmt->bindparam(":role", $role);
+            $stmt->bindparam(":user", $user);
+            $stmt->bindparam(":password", $password);
+            $stmt->bindparam(":adress", $adress);
           $stmt->bindparam(":id", $id);
           $stmt->execute();
           return $stmt;
@@ -53,7 +57,7 @@ class User {
     // Delete
     public function delete($id){
       try{
-        $stmt = $this->conn->prepare("DELETE FROM df_users WHERE id = :id");
+        $stmt = $this->conn->prepare("DELETE FROM df_enviroment WHERE id = :id");
         $stmt->bindparam(":id", $id);
         $stmt->execute();
         return $stmt;

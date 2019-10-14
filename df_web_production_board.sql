@@ -31,14 +31,15 @@ SET time_zone = "+00:00";
 CREATE TABLE `df_users` (
   `id` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `phone` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `df_users`
 --
 
-INSERT INTO `df_users` (`id`, `name`, `email`) VALUES
+INSERT INTO `df_users` (`id`, `name`, `email`, `phone`) VALUES
 (2, 'Dominik Fila', 'fila98@gmx.at');
 
 --
