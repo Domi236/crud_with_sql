@@ -6,11 +6,11 @@ require 'errors.php';
 
 require_once '../classes/enviroment.php';
 
-$objEnviroment = new Enviroment();
+$objUser = new Enviroment();
 // GET
 if(isset($_GET['edit_id'])){
     $id = $_GET['edit_id'];
-    $stmt = $objEnviroment->runQuery("SELECT * FROM df_enviroment WHERE id=:id");
+    $stmt = $objUser->runQuery("SELECT * FROM df_enviroment WHERE id=:id");
     $stmt->execute(array(":id" => $id));
     $rowUser = $stmt->fetch(PDO::FETCH_ASSOC);
 }else{

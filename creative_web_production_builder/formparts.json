@@ -1,0 +1,59 @@
+{
+  "formparts": [
+    {
+      "input_types": [
+        {
+          "input_type_text": "<input type='text' >"
+        },
+        {
+          "input_type_number": "<input type='number' >"
+        },
+        {
+          "input_type_date": "<input type='date' >"
+        },
+        {
+          "input_type_month": "<input type='month' >"
+        },
+        {
+          "input_type_week": "<input type='week' >"
+        },
+        {
+          "input_type_email": "<input type='email' >"
+        },
+        {
+          "input_type_image": "<input type='image' >"
+        },
+        {
+          "input_type_password": "<input type='password' >"
+        },
+        {
+          "input_type_tel": "<input type='tel' >"
+        },
+        {
+          "input_type_url": "<input type='url' >"
+        }
+      ],
+      "input_attributes" : [
+        {
+          "input_attr": "autocomplete"
+        },
+        {
+          "input_attr": "autofocus"
+        },
+        {
+          "input_attr": "placeholder"
+        },
+        {
+          "input_attr": "min"
+        },
+        {
+          "input_attr": "max"
+        },
+        {
+          "input_attr": "required"
+        }
+      ],
+      "textarea_attributes":
+    }
+  ]
+}
